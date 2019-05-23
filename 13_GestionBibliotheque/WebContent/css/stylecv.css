@@ -1,0 +1,27 @@
+    body {
+	padding-left:200px; 
+	padding-right:200px;
+	font-family:Roboto, Arial;
+	background-color: white;
+	}
+	accordeon{
+	font-family:Roboto, Arial;
+}
+p{
+	font-family:Roboto, Arial;
+	text-align: center;
+	padding:7px 12px;
+	font-size:30px;
+	color:#9521204;
+	font-weight:bold;
+	display:inline-block;
+}
+h4{
+	font-family:Roboto, Arial;
+	text-align: center;
+	padding:7px 12px;
+	font-size:20px;
+	color:#9521204;
+	font-weight:bold;
+	display:inline-block;
+}

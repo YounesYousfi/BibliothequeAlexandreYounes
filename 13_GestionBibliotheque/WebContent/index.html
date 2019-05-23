@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Bibliothèque</title>
+		
+	</head>
+
+	<body>
+		<h1>Bienvenue à la bibliothèque</h1>
+		
+		<h3>Afficher tous les livres :</h3>
+		<form action="serv" method="GET">
+			<input type="submit" value="Afficher" name="operation"/>
+		</form>
+		<br><br>
+		<h3>Ajouter un livre :</h3>
+		<form action="serv" method="GET">
+			Titre : <input type="text" name="titre"/><br>
+			Auteur : <input type="text" name="auteur"/><br>
+			Prix : <input type="float" name="prix"/><br>
+			<input type="submit" value="Ajouter" name="operation"/>
+		</form>
+		<br><br>
+		<h3>Supprimer un livre :</h3>
+		<form action="serv" method="GET">
+			ID : <input type="int" name="id"/><br>
+			<input type="submit" value="Supprimer" name="operation"/>
+		</form>
+		<br><br>
+		<h3>Modifier un livre :</h3>
+		<form action="serv" method="GET">
+			ID : <input type="int" name="id"/><br>
+			Titre : <input type="text" name="titre"/><br>
+			Auteur : <input type="text" name="auteur"/><br>
+			Prix : <input type="float" name="prix"/><br>
+			<input type="submit" value="Modifier" name="operation"/>
+		</form>
+	</body>
+</html>
