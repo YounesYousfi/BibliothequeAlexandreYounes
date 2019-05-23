@@ -1,40 +1,73 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Bibliothèque</title>
-		
-	</head>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>Bibliothèque</title>
 
-	<body>
-		<h1>Bienvenue à la bibliothèque</h1>
-		
+</head>
+
+<body style="margin-left:200px;margin-right:200px">
+	<center>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<h1 class="display-4">Bienvenue à la Bibliothèque Bénicéphale</h1>
+				<p class="lead"><i>Afin d'accéder au droit divin spirituel, il faut parfois céder au vin spiritueux - "Kyo Shin Samurato"</i></p>
+			</div>
+		</div>
+
 		<h3>Afficher tous les livres :</h3>
 		<form action="serv" method="GET">
-			<input type="submit" value="Afficher" name="operation"/>
+			<button type="submit" class="btn btn-dark" value="Afficher" name="operation">Afficher</button>
 		</form>
-		<br><br>
+		
+		<br><br><br>
+		
 		<h3>Ajouter un livre :</h3>
 		<form action="serv" method="GET">
-			Titre : <input type="text" name="titre"/><br>
-			Auteur : <input type="text" name="auteur"/><br>
-			Prix : <input type="float" name="prix"/><br>
-			<input type="submit" value="Ajouter" name="operation"/>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Titre</label>
+				<input type="text" name="titre" class="form-control" id="ajoutTitre" placeholder="Titre du livre"><br>
+				<label for="exampleFormControlInput1">Auteur</label>
+				<input type="text" name="auteur" class="form-control" id="ajoutAuteur" placeholder="Auteur du livre"><br>
+				<label for="exampleFormControlInput1">Prix</label>
+				<input type="float" name="prix" class="form-control" id="ajoutPrix" placeholder="Prix du livre"><br>
+				<button type="submit" class="btn btn-dark" value="Ajouter" name="operation">Ajouter</button>
+			</div>
 		</form>
-		<br><br>
+		
+		<br><br><br>
+		
 		<h3>Supprimer un livre :</h3>
 		<form action="serv" method="GET">
-			ID : <input type="int" name="id"/><br>
-			<input type="submit" value="Supprimer" name="operation"/>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">ID</label>
+				<input type="int" name="id" class="form-control" id="supprID" placeholder="ID du livre"><br>
+				<button type="submit" class="btn btn-dark" value="Supprimer" name="operation">Supprimer</button>
+			</div>
 		</form>
-		<br><br>
+		
+		<br><br><br>
+		
 		<h3>Modifier un livre :</h3>
 		<form action="serv" method="GET">
-			ID : <input type="int" name="id"/><br>
-			Titre : <input type="text" name="titre"/><br>
-			Auteur : <input type="text" name="auteur"/><br>
-			Prix : <input type="float" name="prix"/><br>
-			<input type="submit" value="Modifier" name="operation"/>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">ID</label>
+				<input type="int" name="id" class="form-control" id="supprID" placeholder="ID du livre"><br>
+				<label for="exampleFormControlInput1">Titre</label>
+				<input type="text" name="titre" class="form-control" id="ajoutTitre" placeholder="Titre du livre"><br>
+				<label for="exampleFormControlInput1">Auteur</label>
+				<input type="text" name="auteur" class="form-control" id="ajoutAuteur" placeholder="Auteur du livre"><br>
+				<label for="exampleFormControlInput1">Prix</label>
+				<input type="float" name="prix" class="form-control" id="ajoutPrix" placeholder="Prix du livre"><br>
+				<button type="submit" class="btn btn-dark" value="Modifier" name="operation">Modifier</button>
+			</div>
 		</form>
-	</body>
+		
+		<br><br><br>
+	</center>
+</body>
 </html>

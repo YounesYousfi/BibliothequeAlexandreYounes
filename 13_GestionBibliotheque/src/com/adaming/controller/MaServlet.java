@@ -22,83 +22,84 @@ public class MaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		ILivreDao ldao = new LivreDao();
-
+		
 		int id;
 		float prix;
 		if (req.getParameter("id") == null) {
-			id = 0;
-		} else {
+			id=0;
+		}else {
 			id = Integer.parseInt(req.getParameter("id"));
 		}
 		if (req.getParameter("prix") == null) {
-			prix = 0;
-		} else {
+			prix=0;
+		}else {
 			prix = Float.parseFloat(req.getParameter("prix"));
 		}
 		String titre = req.getParameter("titre");
 		String auteur = req.getParameter("auteur");
-
+		
 		String operation = req.getParameter("operation");
+	
 
 		if (operation.equals("Afficher")) {
 			ArrayList<Livre> listeLivres = ldao.afficherTout();
-			ArrayList<Integer> listeid = new ArrayList<>();
-			ArrayList<String> listetitres = new ArrayList<>();
-			ArrayList<String> listeauteurs = new ArrayList<>();
-			ArrayList<Float> listeprix = new ArrayList<>();
-			for (int i = 1; i <= listeLivres.size(); i++) {
-				listeid.add(listeLivres.get(i).getId());
-				listetitres.add(listeLivres.get(i).getTitre());
-				listeauteurs.add(listeLivres.get(i).getAuteur());
-				listeprix.add(listeLivres.get(i).getPrix());
-			}
+			ArrayList<Integer> listeId = new ArrayList<Integer>();
+			ArrayList<String> listeTitres = new ArrayList<String>();
+			ArrayList<String> listeAuteurs = new ArrayList<String>();
+			ArrayList<Float> listePrix = new ArrayList<Float>();
 			if (listeLivres != null) {
-//				req.setAttribute("listeLivres", listeLivres);
-				req.setAttribute("listeid", listeid);
-				req.setAttribute("listetitres", listetitres);
-				req.setAttribute("listeauteurs", listeauteurs);
-				req.setAttribute("listeprix", listeprix);
+				for(int i=0;i<listeLivres.size();i++) {
+					listeId.add(listeLivres.get(i).getId());
+					listeTitres.add(listeLivres.get(i).getTitre());
+					listeAuteurs.add(listeLivres.get(i).getAuteur());
+					listePrix.add(listeLivres.get(i).getPrix());
+				}
+				req.setAttribute("listeLivres", listeLivres);
+				req.setAttribute("listeId", listeId);
+				req.setAttribute("listeTitres", listeTitres);
+				req.setAttribute("listeAuteurs", listeAuteurs);
+				req.setAttribute("listePrix", listePrix);
 				RequestDispatcher dispatcher = req.getRequestDispatcher("affichage.jsp");
 				dispatcher.forward(req, resp);
-			} else {
+			}else {
 				RequestDispatcher dispatcher = req.getRequestDispatcher("operation_ratee.jsp");
 				dispatcher.forward(req, resp);
 			}
 		}
-
+		
 		if (operation.equals("Ajouter")) {
 			Livre l = new Livre(titre, auteur, prix);
 			if (ldao.ajouterLivre(l)) {
 				RequestDispatcher dispatcher = req.getRequestDispatcher("ajout.jsp");
 				dispatcher.forward(req, resp);
-			} else {
+			}else {
 				RequestDispatcher dispatcher = req.getRequestDispatcher("operation_ratee.jsp");
 				dispatcher.forward(req, resp);
 			}
 		}
-
+		
 		if (operation.equals("Supprimer")) {
-			Livre l = new Livre(id, titre, auteur, prix);
+			Livre l = new Livre(id,titre, auteur, prix);
 			if (ldao.deleteLivre(l)) {
 				RequestDispatcher dispatcher = req.getRequestDispatcher("suppression.jsp");
 				dispatcher.forward(req, resp);
-			} else {
+			}else {
 				RequestDispatcher dispatcher = req.getRequestDispatcher("operation_ratee.jsp");
 				dispatcher.forward(req, resp);
 			}
-
+			
 		}
-
+		
 		if (operation.equals("Modifier")) {
-			Livre l = new Livre(id, titre, auteur, prix);
+			Livre l = new Livre(id,titre, auteur, prix);
 			if (ldao.modifierLivre(l)) {
 				RequestDispatcher dispatcher = req.getRequestDispatcher("modification.jsp");
 				dispatcher.forward(req, resp);
-			} else {
+			}else {
 				RequestDispatcher dispatcher = req.getRequestDispatcher("operation_ratee.jsp");
 				dispatcher.forward(req, resp);
 			}
-
+			
 		}
 
 	}

@@ -5,19 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<title>Modification livre réussie</title>
+<title>Affichage Liste</title>
 </head>
 
-<body>
+<body style="margin-left:200px;margin-right:200px">
 	<br>
 	<div align="center">
-		<table class="table table-striped">
-			<thead>
+		<table class="table">
+			<thead class="thead-dark">
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Titre</th>
@@ -26,43 +25,23 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="id" items="${listeid}">
-					<tr>
-						<th scope="row">1</th>
-						<td><c:out value="${id}" /></td>
-					</tr>
-				</c:forEach>
-				<c:forEach var="titre" items="${listetitres}">
-					<tr>
-						<th scope="row">1</th>
-						<td><c:out value="${titre}" /></td>
-					</tr>
-				</c:forEach>
-				<c:forEach var="auteurs" items="${listeauteurs}">
-					<tr>
-						<th scope="row">1</th>
-						<td><c:out value="${auteurs}" /></td>
-					</tr>
-				</c:forEach>
+				<c:forEach var="livre" items="${listeLivres}">
+				<tr>
+					<td><c:out value="${livre.id}" /></td>
+					<td><c:out value="${livre.titre}" /></td>
+					<td><c:out value="${livre.auteur}" /></td>
+					<td><c:out value="${livre.prix}" /></td>
+				</tr>
+			</c:forEach>
+				
 			</tbody>
 		</table>
-		<!-- 			<table border="1" cellpadding="5"> -->
-		<%-- 				<caption> --%>
-		<!-- 					<h2>Liste des livres :</h2> -->
-		<%-- 				</caption> --%>
-		<!-- 				<tr> -->
-		<!-- 					<th>Bibliothèque</th> -->
-		<!-- 				</tr> -->
-		<%-- 				<c:forEach var="element" items="${listeLivres}"> --%>
-		<!-- 					<tr> -->
-		<%-- 						<td><c:out value="${element}" /></td> --%>
-		<!-- 					</tr> -->
-		<%-- 				</c:forEach> --%>
-		<!-- 			</table> -->
+
+		<br><br>
+		
+		<a href="http://localhost:8080/13_GestionBibliotheque"><button type="button" class="btn btn-dark">Retour au menu principal</button></a>
 	</div>
 
-	<br>
-	<a href="http://localhost:8080/13_GestionBibliotheque"><button>Retour
-			au menu principal</button></a>
+
 </body>
 </html>
